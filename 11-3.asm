@@ -1,4 +1,6 @@
 .data
+	# Exercicio 11.3 
+	# Victor Andrews, Erick Roberto, Julio Cleiton, Emanuel Ami, JoÃ£o Guilherme
 	# int fun(int a, int b, int c , int e, int f);
 	# int a,p,q,z,w,v[N].
 	# x = fun(16*a, z*w, gun(p,q,r,s), v[3],v[z], z-2);
@@ -30,12 +32,12 @@
 	lw $a1,q
 	lw $a2,r
 	lw $a3,s
-	jal gun # chamada da função gun com os parametros p q r s
+	jal gun # chamada da funÃ§Ã£o gun com os parametros p q r s
 	move $a2, $v0 # captura o resultado para a2 que estava em v0
 	
 	# quarto argumento : v[3]
 	la $t4,v #carrega o vetor 
-	lw $a3,12($t4) # offset de 12 no vetor (3x4= 12) ou seja 3 posições
+	lw $a3,12($t4) # offset de 12 no vetor (3x4= 12) ou seja 3 posiÃ§Ãµes
 	
 	# quinto e sexto argumentos: v[z] e z-2
 	lw $t5,v #carrega vetor
@@ -43,7 +45,7 @@
 	la $t6,v 
 	add $t5,$t5,$t6
 	lw $t7, 0($t5) #t7 = v[z]
-	addi $sp,$sp, -8  # cria espaço para 2 argumentos extras
+	addi $sp,$sp, -8  # cria espaÃ§o para 2 argumentos extras
 	sw $t7,0($sp) # quinto argumento
 	lw, $t8,z
 	addi $t8,$t8,-2
@@ -53,7 +55,7 @@
 	
 	jal fun	
 	
-	# guarda resultado da pilha da função em x
+	# guarda resultado da pilha da funÃ§Ã£o em x
 	lw $t9,x
 	sw $v0,x
 	
